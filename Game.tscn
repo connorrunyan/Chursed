@@ -68,7 +68,7 @@ environment = SubResource("Environment_bhob0")
 current = true
 
 [node name="Label" type="Label" parent="Camera3D"]
-modulate = Color(1, 0, 0.0784314, 0.482353)
+modulate = Color(1, 0, 0.0784314, 0.321569)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -97,7 +97,7 @@ libraries = {
 "": SubResource("AnimationLibrary_gm4di")
 }
 autoplay = "text"
-speed_scale = 0.2
+speed_scale = 0.07
 
 [node name="CRT" parent="Camera3D" instance=ExtResource("1_4lv1o")]
 
