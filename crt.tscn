@@ -24,7 +24,7 @@ shader_parameter/discolor = true
 shader_parameter/warp_amount = 1.0
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_opacity = 1.0
 
 [node name="CRT" type="ColorRect"]
 material = SubResource("ShaderMaterial_0x3ol")
