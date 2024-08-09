@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwb1a8u4qi3gd"]
+[gd_scene load_steps=11 format=3 uid="uid://bwb1a8u4qi3gd"]
 
 [ext_resource type="PackedScene" uid="uid://d2hgbw2ljlnv8" path="res://crt.tscn" id="1_4lv1o"]
 [ext_resource type="PackedScene" uid="uid://des0my208aa5t" path="res://the_lamp.tscn" id="2_upoo1"]
@@ -19,6 +19,42 @@ background_mode = 2
 background_energy_multiplier = 0.0
 sky = SubResource("Sky_nsthh")
 
+[sub_resource type="Animation" id="Animation_61k31"]
+resource_name = "text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_w0rjh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gm4di"]
+_data = {
+"RESET": SubResource("Animation_w0rjh"),
+"text": SubResource("Animation_61k31")
+}
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_kfevd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b3io7"]
@@ -27,14 +63,46 @@ size = Vector3(8, 0.1, 8)
 [node name="Game" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.80216)
+transform = Transform3D(1, 0, 0, 0, 0.838671, 0.544639, 0, -0.544639, 0.838671, 0, 2, 2)
 environment = SubResource("Environment_bhob0")
 current = true
+
+[node name="Label" type="Label" parent="Camera3D"]
+modulate = Color(1, 0, 0.0784314, 0.482353)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 649.0
+offset_right = 2.0
+offset_bottom = 649.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00418, -1.01903)
+size_flags_horizontal = 3
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus sed tellus ut tincidunt. Cras ipsum nisl, consectetur ac blandit sit amet, dignissim eu lorem. Nullam in massa vestibulum, cursus orci ac, tempor lorem. Integer scelerisque in tortor eu vehicula. Sed gravida eget ex sit amet rutrum. Quisque ut eros elementum, fermentum ligula vitae, ultrices eros. Maecenas venenatis mauris condimentum, malesuada est quis, suscipit sapien. Praesent eu nunc felis. Sed varius volutpat augue, et venenatis justo blandit id. Aenean arcu eros, dapibus eu nisl vitae, tempor pharetra diam. Aliquam varius ligula quis ultrices auctor. Aliquam imperdiet sem ac diam sollicitudin, sit amet finibus ipsum dapibus. Quisque quis leo arcu. Maecenas volutpat, turpis at euismod ultricies, elit metus semper quam, vel iaculis risus lectus id arcu.
+
+Nullam nulla est, scelerisque non velit sit amet, fermentum posuere odio. Nam quis nulla malesuada, tempor orci quis, vehicula magna. Fusce at massa nulla. Donec feugiat leo quis orci mollis, vel dapibus velit lacinia. Aenean ac blandit ligula. Donec bibendum quam et nunc tempor venenatis. Pellentesque et pharetra augue.
+
+Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus.
+
+Curabitur ut magna magna. Vestibulum sed ex eu ante molestie volutpat eu sed orci. Donec mattis tincidunt malesuada. Suspendisse aliquet, sapien quis ullamcorper auctor, enim libero sollicitudin turpis, at imperdiet turpis libero et libero. Phasellus egestas diam vel justo interdum, non euismod odio dapibus. Fusce elementum euismod dolor eget ornare. Nam condimentum porta ex sed vestibulum. In hac habitasse platea dictumst. Donec a blandit enim. Curabitur in mauris rhoncus, venenatis ligula id, ultrices nibh. Nulla semper nunc velit, eget porttitor tellus luctus quis. Donec sollicitudin lacinia fringilla. Vestibulum lacus tellus, pulvinar quis justo in, tincidunt accumsan lacus. Suspendisse lobortis est sapien, quis fermentum erat tristique quis. Sed id lacinia nibh.
+Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus."
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_gm4di")
+}
+autoplay = "text"
+speed_scale = 0.2
 
 [node name="CRT" parent="Camera3D" instance=ExtResource("1_4lv1o")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.518271, -1.08144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.518271, -7.04233)
 mesh = SubResource("CylinderMesh_kfevd")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
