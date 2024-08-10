@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bwb1a8u4qi3gd"]
+[gd_scene load_steps=28 format=3 uid="uid://bwb1a8u4qi3gd"]
 
 [ext_resource type="PackedScene" uid="uid://d2hgbw2ljlnv8" path="res://crt.tscn" id="1_4lv1o"]
 [ext_resource type="Script" path="res://Game.gd" id="1_stsyr"]
@@ -9,7 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://dlxu6hpjud0xr" path="res://sounds/tcp_d1_12_three_note_odditiy_irdial.mp3" id="6_vo3bf"]
 [ext_resource type="Texture2D" uid="uid://c4lpoopi08bll" path="res://cam_test3.png" id="7_2eq77"]
 [ext_resource type="AudioStream" uid="uid://cchdphvmyx63r" path="res://sounds/rain-on-the-window-114709.mp3" id="7_3pr1t"]
-[ext_resource type="FontFile" uid="uid://c81hr3r54df2" path="res://dogicapixelbold.ttf" id="9_o1j7a"]
+[ext_resource type="AudioStream" uid="uid://brvvdhocfnl58" path="res://sounds/vhs_switch.wav" id="8_kb3pw"]
+[ext_resource type="FontFile" uid="uid://b0hjx6dmfw5re" path="res://HomeVideo-BLG6G.ttf" id="9_tm1gh"]
+[ext_resource type="FontFile" uid="uid://cf26amlx184bw" path="res://HomeVideoBold-R90Dv.ttf" id="10_3tkok"]
+[ext_resource type="PackedScene" uid="uid://dfr31glcdc5jd" path="res://ui.tscn" id="12_lq0t6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wl4d2"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -229,37 +232,141 @@ volume_db = -5.0
 autoplay = true
 bus = &"distantRight"
 
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_kb3pw")
+volume_db = -5.0
+pitch_scale = 0.8
+bus = &"closeLeft"
+
 [node name="Camera" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(117, 558)
 scale = Vector2(0.055, 0.0436667)
 texture = ExtResource("7_2eq77")
 
 [node name="CamLabel" type="Label" parent="."]
+visible = false
 modulate = Color(0, 1, 0.000607729, 1)
 offset_left = 98.0
 offset_top = 78.0
 offset_right = 329.0
 offset_bottom = 122.0
-theme_override_fonts/font = ExtResource("9_o1j7a")
+theme_override_fonts/font = ExtResource("9_tm1gh")
 theme_override_font_sizes/font_size = 50
 text = "1
 
 "
+
+[node name="ControlLabel" type="Label" parent="."]
+visible = false
+modulate = Color(0, 1, 0.000607729, 1)
+offset_left = 60.0
+offset_top = 497.0
+offset_right = 291.0
+offset_bottom = 588.0
+theme_override_fonts/font = ExtResource("10_3tkok")
+theme_override_font_sizes/font_size = 50
+text = "> MVT
+  CAM"
+
+[node name="ControlLabel2" type="Label" parent="."]
+visible = false
+modulate = Color(0, 1, 0.000607729, 1)
+offset_left = 320.0
+offset_top = 211.0
+offset_right = 551.0
+offset_bottom = 592.0
+theme_override_fonts/font = ExtResource("9_tm1gh")
+theme_override_font_sizes/font_size = 50
+text = "  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8"
+
+[node name="ControlLabel5" type="Label" parent="."]
+visible = false
+modulate = Color(0, 1, 0.000607729, 1)
+offset_left = 523.0
+offset_top = 208.0
+offset_right = 754.0
+offset_bottom = 589.0
+theme_override_fonts/font = ExtResource("9_tm1gh")
+theme_override_font_sizes/font_size = 50
+text = "  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8"
+
+[node name="ControlLabel3" type="Label" parent="."]
+visible = false
+modulate = Color(0, 1, 0.000607729, 1)
+offset_left = 219.0
+offset_top = 211.0
+offset_right = 450.0
+offset_bottom = 592.0
+theme_override_fonts/font = ExtResource("9_tm1gh")
+theme_override_font_sizes/font_size = 50
+text = "  A
+  B
+  C
+  D
+  E
+  F
+  G
+  H"
+
+[node name="ControlLabel4" type="Label" parent="."]
+visible = false
+modulate = Color(0, 1, 0.000607729, 1)
+offset_left = 421.0
+offset_top = 211.0
+offset_right = 652.0
+offset_bottom = 592.0
+theme_override_fonts/font = ExtResource("9_tm1gh")
+theme_override_font_sizes/font_size = 50
+text = "  A
+  B
+  C
+  D
+  E
+  F
+  G
+  H"
+
+[node name="UI" parent="." instance=ExtResource("12_lq0t6")]
+offset_left = 57.0
+offset_top = -46.0
+offset_right = 57.0
+offset_bottom = -46.0
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 0, 0, 0.784314)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 649.0
-offset_right = 2.0
-offset_bottom = 649.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.00418, -1.01903)
+scale = Vector2(1.0136, 0.996737)
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus sed tellus ut tincidunt. Cras ipsum nisl, consectetur ac blandit sit amet, dignissim eu lorem. Nullam in massa vestibulum, cursus orci ac, tempor lorem. Integer scelerisque in tortor eu vehicula. Sed gravida eget ex sit amet rutrum. Quisque ut eros elementum, fermentum ligula vitae, ultrices eros. Maecenas venenatis mauris condimentum, malesuada est quis, suscipit sapien. Praesent eu nunc felis. Sed varius volutpat augue, et venenatis justo blandit id. Aenean arcu eros, dapibus eu nisl vitae, tempor pharetra diam. Aliquam varius ligula quis ultrices auctor. Aliquam imperdiet sem ac diam sollicitudin, sit amet finibus ipsum dapibus. Quisque quis leo arcu. Maecenas volutpat, turpis at euismod ultricies, elit metus semper quam, vel iaculis risus lectus id arcu.
+Nullam nulla est, scelerisque non velit sit amet, fermentum posuere odio. Nam quis nulla malesuada, tempor orci quis, vehicula magna. Fusce at massa nulla. Donec feugiat leo quis orci mollis, vel dapibus velit lacinia. Aenean ac blandit ligula. Donec bibendum quam et nunc tempor venenatis. Pellentesque et pharetra augue.
+Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus.
+Curabitur ut magna magna. Vestibulum sed ex eu ante molestie volutpat eu sed orci. Donec mattis tincidunt malesuada. Suspendisse aliquet, sapien quis ullamcorper auctor, enim libero sollicitudin turpis, at imperdiet turpis libero et libero. Phasellus egestas diam vel justo interdum, non euismod odio dapibus. Fusce elementum euismod dolor eget ornare. Nam condimentum porta ex sed vestibulum. In hac habitasse platea dictumst. Donec a blandit enim. Curabitur in mauris rhoncus, venenatis ligula id, ultrices nibh. Nulla semper nunc velit, eget porttitor tellus luctus quis. Donec sollicitudin lacinia fringilla. Vestibulum lacus tellus, pulvinar quis justo in, tincidunt accumsan lacus. Suspendisse lobortis est sapien, quis fermentum erat tristique quis. Sed id lacinia nibh.
+Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus sed tellus ut tincidunt. Cras ipsum nisl, consectetur ac blandit sit amet, dignissim eu lorem. Nullam in massa vestibulum, cursus orci ac, tempor lorem. Integer scelerisque in tortor eu vehicula. Sed gravida eget ex sit amet rutrum. Quisque ut eros elementum, fermentum ligula vitae, ultrices eros. Maecenas venenatis mauris condimentum, malesuada est quis, suscipit sapien. Praesent eu nunc felis. Sed varius volutpat augue, et venenatis justo blandit id. Aenean arcu eros, dapibus eu nisl vitae, tempor pharetra diam. Aliquam varius ligula quis ultrices auctor. Aliquam imperdiet sem ac diam sollicitudin, sit amet finibus ipsum dapibus. Quisque quis leo arcu. Maecenas volutpat, turpis at euismod ultricies, elit metus semper quam, vel iaculis risus lectus id arcu.
+Nullam nulla est, scelerisque non velit sit amet, fermentum posuere odio. Nam quis nulla malesuada, tempor orci quis, vehicula magna. Fusce at massa nulla. Donec feugiat leo quis orci mollis, vel dapibus velit lacinia. Aenean ac blandit ligula. Donec bibendum quam et nunc tempor venenatis. Pellentesque et pharetra augue.
+Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus.
+Curabitur ut magna magna. Vestibulum sed ex eu ante molestie volutpat eu sed orci. Donec mattis tincidunt malesuada. Suspendisse aliquet, sapien quis ullamcorper auctor, enim libero sollicitudin turpis, at imperdiet turpis libero et libero. Phasellus egestas diam vel justo interdum, non euismod odio dapibus. Fusce elementum euismod dolor eget ornare. Nam condimentum porta ex sed vestibulum. In hac habitasse platea dictumst. Donec a blandit enim. Curabitur in mauris rhoncus, venenatis ligula id, ultrices nibh. Nulla semper nunc velit, eget porttitor tellus luctus quis. Donec sollicitudin lacinia fringilla. Vestibulum lacus tellus, pulvinar quis justo in, tincidunt accumsan lacus. Suspendisse lobortis est sapien, quis fermentum erat tristique quis. Sed id lacinia nibh.
+Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus sed tellus ut tincidunt. Cras ipsum nisl, consectetur ac blandit sit amet, dignissim eu lorem. Nullam in massa vestibulum, cursus orci ac, tempor lorem. Integer scelerisque in tortor eu vehicula. Sed gravida eget ex sit amet rutrum. Quisque ut eros elementum, fermentum ligula vitae, ultrices eros. Maecenas venenatis mauris condimentum, malesuada est quis, suscipit sapien. Praesent eu nunc felis. Sed varius volutpat augue, et venenatis justo blandit id. Aenean arcu eros, dapibus eu nisl vitae, tempor pharetra diam. Aliquam varius ligula quis ultrices auctor. Aliquam imperdiet sem ac diam sollicitudin, sit amet finibus ipsum dapibus. Quisque quis leo arcu. Maecenas volutpat, turpis at euismod ultricies, elit metus semper quam, vel iaculis risus lectus id arcu.
 Nullam nulla est, scelerisque non velit sit amet, fermentum posuere odio. Nam quis nulla malesuada, tempor orci quis, vehicula magna. Fusce at massa nulla. Donec feugiat leo quis orci mollis, vel dapibus velit lacinia. Aenean ac blandit ligula. Donec bibendum quam et nunc tempor venenatis. Pellentesque et pharetra augue.
 Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus.
 Curabitur ut magna magna. Vestibulum sed ex eu ante molestie volutpat eu sed orci. Donec mattis tincidunt malesuada. Suspendisse aliquet, sapien quis ullamcorper auctor, enim libero sollicitudin turpis, at imperdiet turpis libero et libero. Phasellus egestas diam vel justo interdum, non euismod odio dapibus. Fusce elementum euismod dolor eget ornare. Nam condimentum porta ex sed vestibulum. In hac habitasse platea dictumst. Donec a blandit enim. Curabitur in mauris rhoncus, venenatis ligula id, ultrices nibh. Nulla semper nunc velit, eget porttitor tellus luctus quis. Donec sollicitudin lacinia fringilla. Vestibulum lacus tellus, pulvinar quis justo in, tincidunt accumsan lacus. Suspendisse lobortis est sapien, quis fermentum erat tristique quis. Sed id lacinia nibh.
@@ -279,3 +386,4 @@ speed_scale = 0.001
 [node name="CRT" parent="." instance=ExtResource("1_4lv1o")]
 
 [connection signal="timeout" from="AudioStreamPlayer3/Timer" to="." method="_on_timer_timeout"]
+[connection signal="change_camera" from="UI" to="." method="_on_ui_change_camera"]

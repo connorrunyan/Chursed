@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2hgbw2ljlnv8"]
+[gd_scene load_steps=8 format=3 uid="uid://d2hgbw2ljlnv8"]
 
 [ext_resource type="Shader" path="res://crt.gdshader" id="1_8twvv"]
 [ext_resource type="Script" path="res://crt.gd" id="2_1joxd"]
 [ext_resource type="AudioStream" uid="uid://dnrt5jb36nhyh" path="res://sounds/static_blast.wav" id="3_jlgra"]
-[ext_resource type="AudioStream" uid="uid://brvvdhocfnl58" path="res://sounds/vhs_switch.wav" id="4_b5qtk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0x3ol"]
 shader = ExtResource("1_8twvv")
@@ -83,8 +82,4 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_jlgra")
 volume_db = -30.0
-bus = &"closeLeft"
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_b5qtk")
 bus = &"closeLeft"

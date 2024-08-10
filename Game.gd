@@ -8,9 +8,10 @@ extends Node3D
 @onready var camera4 = $Camera3D4
 
 @onready var CRT = $CRT
-@onready var cam_label = $CamLabel
+@onready var vhs_audio = $AudioStreamPlayer5
 
 var current_camera = 1
+var current_selection = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,15 +19,17 @@ func _ready():
 	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):	
-	if Input.is_action_just_pressed("ui_accept"):
-		current_camera += 1
-		if current_camera >= 5:
-			current_camera = 1
-		change_current_camera(current_camera)
-		cam_label.text = str(current_camera)
+func _process(delta):
+	pass
+
+func update_ui(i):
+	if i == 1:
+		$ControlLabel.text = "> MVT\n  CAM"
+	elif i == 2:
+		$ControlLabel.text = "  MVT\n> CAM"
 
 func change_current_camera(i):
+	vhs_audio.play()
 	if i == 1:
 		camera1.current = true
 		camera2.current = false
@@ -57,3 +60,7 @@ func change_current_camera(i):
 
 func _on_timer_timeout():
 	$AudioStreamPlayer3.play()
+
+
+func _on_ui_change_camera(i):
+	change_current_camera(i)

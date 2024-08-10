@@ -1,0 +1,265 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfr31glcdc5jd"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_4ftf1"]
+[ext_resource type="FontFile" uid="uid://b0hjx6dmfw5re" path="res://HomeVideo-BLG6G.ttf" id="1_hsw7o"]
+[ext_resource type="FontFile" uid="uid://cf26amlx184bw" path="res://HomeVideoBold-R90Dv.ttf" id="3_ubo6s"]
+
+[node name="UI" type="Control"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("1_4ftf1")
+font = ExtResource("1_hsw7o")
+fontBold = ExtResource("3_ubo6s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 44.0
+grow_vertical = 0
+
+[node name="MenuContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MenuLabel" type="Label" parent="HBoxContainer/MenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = ">MENU"
+
+[node name="OptionsContainer" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 2
+
+[node name="CameraLabel" type="Label" parent="HBoxContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " CAM 1"
+
+[node name="Timer" type="Timer" parent="HBoxContainer/OptionsContainer/CameraLabel"]
+wait_time = 0.2
+
+[node name="MovementLabel" type="Label" parent="HBoxContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = ">MOVMT"
+
+[node name="Letter1Container" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Letter1A" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " A"
+
+[node name="Letter1B" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " B"
+
+[node name="Letter1C" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " C"
+
+[node name="Letter1D" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " D"
+
+[node name="Letter1E" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " E"
+
+[node name="Letter1F" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " F"
+
+[node name="Letter1G" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = " G"
+
+[node name="Letter1H" type="Label" parent="HBoxContainer/Letter1Container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 40
+text = ">H"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 1"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 2"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 3"
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 4"
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 5"
+
+[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 6"
+
+[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 7"
+
+[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 8"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " A"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " B"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " C"
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " D"
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " E"
+
+[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " F"
+
+[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " G"
+
+[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " H"
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 1"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 2"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 3"
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 4"
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 5"
+
+[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 6"
+
+[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 7"
+
+[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hsw7o")
+theme_override_font_sizes/font_size = 50
+text = " 8"
+
+[connection signal="timeout" from="HBoxContainer/OptionsContainer/CameraLabel/Timer" to="." method="_on_timer_timeout"]
