@@ -12,7 +12,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func animate_switch():
 	if anim.is_playing():
 		anim.stop()

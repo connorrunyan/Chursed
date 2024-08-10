@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://des0my208aa5t" path="res://the_lamp.tscn" id="2_1dsn5"]
 [ext_resource type="PackedScene" uid="uid://disiop8pjivjt" path="res://Board.tscn" id="2_47q1s"]
 [ext_resource type="AudioStream" uid="uid://bf7nvmqslt7ir" path="res://sounds/horror.wav" id="4_qcv6v"]
-[ext_resource type="AudioStream" uid="uid://cr4212ldcd5ks" path="res://sounds/static_constant.wav" id="5_yvdvk"]
-[ext_resource type="AudioStream" uid="uid://dlxu6hpjud0xr" path="res://sounds/tcp_d1_12_three_note_odditiy_irdial.mp3" id="6_vo3bf"]
+[ext_resource type="AudioStream" uid="uid://cw6w6bkxvccl3" path="res://sounds/real-vhs-169982.mp3" id="5_6um4c"]
+[ext_resource type="AudioStream" uid="uid://dwb1i5hc15b6l" path="res://sounds/tcp_d1_01_the_swedish_rhapsody_irdial.mp3" id="6_hv65i"]
 [ext_resource type="Texture2D" uid="uid://c4lpoopi08bll" path="res://cam_test3.png" id="7_2eq77"]
 [ext_resource type="AudioStream" uid="uid://cchdphvmyx63r" path="res://sounds/rain-on-the-window-114709.mp3" id="7_3pr1t"]
 [ext_resource type="AudioStream" uid="uid://brvvdhocfnl58" path="res://sounds/vhs_switch.wav" id="8_kb3pw"]
@@ -30,6 +30,21 @@ background_mode = 2
 background_energy_multiplier = 0.0
 sky = SubResource("Sky_nsthh")
 
+[sub_resource type="Animation" id="Animation_i30rb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.15192, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_xlxap"]
 resource_name = "swing"
 length = 12.0
@@ -47,25 +62,25 @@ tracks/0/keys = {
 "values": [Vector3(-1.15192, -0.575959, 0), Vector3(-1.15192, -1.15192, 0), Vector3(-1.15192, -1.15192, 0), Vector3(-1.15192, -0.575959, 0), Vector3(-1.15192, -0.575959, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_i30rb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6eeju"]
+_data = {
+"RESET": SubResource("Animation_i30rb"),
+"swing": SubResource("Animation_xlxap")
+}
+
+[sub_resource type="Animation" id="Animation_yqd0k"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath(".:fov")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.15192, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6eeju"]
-_data = {
-"RESET": SubResource("Animation_i30rb"),
-"swing": SubResource("Animation_xlxap")
+"values": [75.0]
 }
 
 [sub_resource type="Animation" id="Animation_r0klu"]
@@ -83,21 +98,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [30.0, 15.0, 15.0, 30.0]
-}
-
-[sub_resource type="Animation" id="Animation_yqd0k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:fov")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [75.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77s0a"]
@@ -149,7 +149,7 @@ _data = {
 script = ExtResource("1_stsyr")
 
 [node name="Camera3D1" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.406737, 0.913545, 0, -0.913545, 0.406737, -3, 6, 3)
+transform = Transform3D(1, 0, 0, 0, 0.406734, 0.913546, 0, -0.913546, 0.406734, -3, 6, 3)
 environment = SubResource("Environment_bhob0")
 current = true
 
@@ -213,13 +213,13 @@ stream = ExtResource("4_qcv6v")
 volume_db = -20.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_yvdvk")
-volume_db = -60.0
+stream = ExtResource("5_6um4c")
+volume_db = -10.0
 autoplay = true
 bus = &"closeLeft"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_vo3bf")
+stream = ExtResource("6_hv65i")
 volume_db = -30.0
 bus = &"distantLeftReverb"
 
@@ -348,6 +348,7 @@ offset_right = 57.0
 offset_bottom = -46.0
 
 [node name="Label" type="Label" parent="."]
+visible = false
 modulate = Color(1, 0, 0, 0.784314)
 anchors_preset = 15
 anchor_right = 1.0
@@ -387,3 +388,4 @@ speed_scale = 0.001
 
 [connection signal="timeout" from="AudioStreamPlayer3/Timer" to="." method="_on_timer_timeout"]
 [connection signal="change_camera" from="UI" to="." method="_on_ui_change_camera"]
+[connection signal="move" from="UI" to="." method="_on_ui_move"]

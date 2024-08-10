@@ -15,7 +15,7 @@ var current_selection = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.wait_time = randi_range(1, 20)
+	timer.wait_time = randi_range(10, 30)
 	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,13 +35,13 @@ func change_current_camera(i):
 		camera2.current = false
 		camera3.current = false
 		camera4.current = false
-		$Label.visible = true
+		$Label.visible = false
 	elif i == 2:
 		camera1.current = false
 		camera2.current = true
 		camera3.current = false
 		camera4.current = false
-		$Label.visible = false
+		$Label.visible = true
 	elif i == 3:
 		camera1.current = false
 		camera2.current = false
@@ -64,3 +64,9 @@ func _on_timer_timeout():
 
 func _on_ui_change_camera(i):
 	change_current_camera(i)
+
+
+func _on_ui_move(a, b, c, d):
+	print(str(a) + str(b) + str(c) + str(d))
+	
+	CRT.animate_switch()

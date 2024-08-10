@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfr31glcdc5jd"]
+[gd_scene load_steps=6 format=3 uid="uid://dfr31glcdc5jd"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_4ftf1"]
 [ext_resource type="FontFile" uid="uid://b0hjx6dmfw5re" path="res://HomeVideo-BLG6G.ttf" id="1_hsw7o"]
 [ext_resource type="FontFile" uid="uid://cf26amlx184bw" path="res://HomeVideoBold-R90Dv.ttf" id="3_ubo6s"]
+[ext_resource type="AudioStream" uid="uid://cwiy0d6yedg5k" path="res://sounds/switch-light-04-82204.mp3" id="4_bxsrm"]
+[ext_resource type="AudioStream" uid="uid://gge5b3dm5k04" path="res://sounds/tape-player-sounds-90780.mp3" id="5_15n3x"]
 
 [node name="UI" type="Control"]
 modulate = Color(0, 1, 0, 1)
@@ -107,160 +109,174 @@ theme_override_fonts/font = ExtResource("1_hsw7o")
 theme_override_font_sizes/font_size = 40
 text = ">H"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Number1Container" type="VBoxContainer" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number11" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 1"
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number12" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 2"
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number13" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 3"
 
-[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number14" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 4"
 
-[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number15" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 5"
 
-[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number16" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 6"
 
-[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number17" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 7"
 
-[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Number18" type="Label" parent="HBoxContainer/Number1Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 8"
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Letter2Container" type="VBoxContainer" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2A" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " A"
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2B" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " B"
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2C" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " C"
 
-[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2D" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " D"
 
-[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2E" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " E"
 
-[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2F" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " F"
 
-[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2G" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " G"
 
-[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer5"]
+[node name="Letter2H" type="Label" parent="HBoxContainer/Letter2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " H"
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Number2Container" type="VBoxContainer" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number21" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 1"
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number22" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 2"
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number23" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 3"
 
-[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number24" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 4"
 
-[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number25" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 5"
 
-[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number26" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 6"
 
-[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number27" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 7"
 
-[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer6"]
+[node name="Number28" type="Label" parent="HBoxContainer/Number2Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hsw7o")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = " 8"
 
+[node name="MoveEnteredTimer" type="Timer" parent="HBoxContainer/Number2Container"]
+wait_time = 0.2
+one_shot = true
+
+[node name="SwitchAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bxsrm")
+bus = &"closeLeft"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_15n3x")
+volume_db = -5.0
+bus = &"closeLeft"
+
 [connection signal="timeout" from="HBoxContainer/OptionsContainer/CameraLabel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HBoxContainer/Number2Container/MoveEnteredTimer" to="." method="_on_move_entered_timer_timeout"]

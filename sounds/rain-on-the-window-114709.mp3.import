@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/rain-on-the-window-114709.mp3-8755d0a7a0fb90b
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
