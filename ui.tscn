@@ -46,7 +46,8 @@ theme_override_font_sizes/font_size = 40
 text = " CAM 1"
 
 [node name="Timer" type="Timer" parent="HBoxContainer/OptionsContainer/CameraLabel"]
-wait_time = 0.2
+wait_time = 0.1
+one_shot = true
 
 [node name="MovementLabel" type="Label" parent="HBoxContainer/OptionsContainer"]
 layout_mode = 2

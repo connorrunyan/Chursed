@@ -111,6 +111,8 @@ func select_menu():
 
 func deselect_col_1():
 	current_col = 0
+	current_row = 0
+	update_col_1(current_row, current_camera)
 	menu_label.add_theme_font_override("font", font)
 	menu_label.text = ">MENU"
 	options_container.visible = false
@@ -224,3 +226,4 @@ func deselect_letters_1():
 
 func _on_timer_timeout():
 	camera_label.add_theme_font_override("font", font)
+	deselect_col_1()
