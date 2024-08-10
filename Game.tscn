@@ -1,8 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwb1a8u4qi3gd"]
+[gd_scene load_steps=25 format=3 uid="uid://bwb1a8u4qi3gd"]
 
 [ext_resource type="PackedScene" uid="uid://d2hgbw2ljlnv8" path="res://crt.tscn" id="1_4lv1o"]
+[ext_resource type="Script" path="res://Game.gd" id="1_stsyr"]
 [ext_resource type="PackedScene" uid="uid://des0my208aa5t" path="res://the_lamp.tscn" id="2_1dsn5"]
 [ext_resource type="PackedScene" uid="uid://disiop8pjivjt" path="res://Board.tscn" id="2_47q1s"]
+[ext_resource type="AudioStream" uid="uid://bf7nvmqslt7ir" path="res://sounds/horror.wav" id="4_qcv6v"]
+[ext_resource type="AudioStream" uid="uid://cr4212ldcd5ks" path="res://sounds/static_constant.wav" id="5_yvdvk"]
+[ext_resource type="AudioStream" uid="uid://dlxu6hpjud0xr" path="res://sounds/tcp_d1_12_three_note_odditiy_irdial.mp3" id="6_vo3bf"]
+[ext_resource type="Texture2D" uid="uid://c4lpoopi08bll" path="res://cam_test3.png" id="7_2eq77"]
+[ext_resource type="AudioStream" uid="uid://cchdphvmyx63r" path="res://sounds/rain-on-the-window-114709.mp3" id="7_3pr1t"]
+[ext_resource type="FontFile" uid="uid://c81hr3r54df2" path="res://dogicapixelbold.ttf" id="9_o1j7a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wl4d2"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -20,8 +27,87 @@ background_mode = 2
 background_energy_multiplier = 0.0
 sky = SubResource("Sky_nsthh")
 
-[sub_resource type="Animation" id="Animation_w0rjh"]
+[sub_resource type="Animation" id="Animation_xlxap"]
+resource_name = "swing"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 6, 8, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.15192, -0.575959, 0), Vector3(-1.15192, -1.15192, 0), Vector3(-1.15192, -1.15192, 0), Vector3(-1.15192, -0.575959, 0), Vector3(-1.15192, -0.575959, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i30rb"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.15192, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6eeju"]
+_data = {
+"RESET": SubResource("Animation_i30rb"),
+"swing": SubResource("Animation_xlxap")
+}
+
+[sub_resource type="Animation" id="Animation_r0klu"]
+resource_name = "zoomin"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [30.0, 15.0, 15.0, 30.0]
+}
+
+[sub_resource type="Animation" id="Animation_yqd0k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77s0a"]
+_data = {
+"RESET": SubResource("Animation_yqd0k"),
+"zoomin": SubResource("Animation_r0klu")
+}
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kfevd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kih0t"]
+
+[sub_resource type="Animation" id="Animation_w0rjh"]
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,10 +115,10 @@ tracks/0/path = NodePath(".:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_61k31"]
@@ -56,17 +142,112 @@ _data = {
 "text": SubResource("Animation_61k31")
 }
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_kfevd"]
-
 [node name="Game" type="Node3D"]
+script = ExtResource("1_stsyr")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.838671, 0.544639, 0, -0.544639, 0.838671, 0, 2, 2)
+[node name="Camera3D1" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.406737, 0.913545, 0, -0.913545, 0.406737, -3, 6, 3)
 environment = SubResource("Environment_bhob0")
 current = true
 
-[node name="Label" type="Label" parent="Camera3D"]
-modulate = Color(0.960938, 0.975996, 1, 1)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D1"]
+libraries = {
+"": SubResource("AnimationLibrary_6eeju")
+}
+autoplay = "swing"
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(0.962692, -0.269118, 0.0282854, 0, 0.104528, 0.994522, -0.2706, -0.957418, 0.100629, 0.941547, 20, 1.91824)
+environment = SubResource("Environment_bhob0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D2"]
+libraries = {
+"": SubResource("AnimationLibrary_77s0a")
+}
+autoplay = "zoomin"
+
+[node name="Camera3D3" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.544639, 0.838671, 0, 0.838671, 0.544639, -1, 2.38069e-08, -3.66595e-08, 4.38019, 0.990175, -0.000102758)
+environment = SubResource("Environment_bhob0")
+fov = 149.3
+
+[node name="Camera3D4" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.02399, -6.18323)
+environment = SubResource("Environment_bhob0")
+
+[node name="TheLamp" parent="." instance=ExtResource("2_1dsn5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00259423, 30, 1.96887)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426638, 0.96948, -2.55093)
+mesh = SubResource("CylinderMesh_kfevd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5578, 0.96948, -3.47634)
+mesh = SubResource("CylinderMesh_kfevd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44459, 0.96948, -3.54574)
+mesh = SubResource("CylinderMesh_kfevd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.521902, 0.96948, -3.54574)
+mesh = SubResource("CapsuleMesh_kih0t")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50361, 0.96948, -3.52261)
+mesh = SubResource("CapsuleMesh_kih0t")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55261, 0.96948, -3.47634)
+mesh = SubResource("CapsuleMesh_kih0t")
+
+[node name="Board" parent="." instance=ExtResource("2_47q1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0188406, 1.20181, 3.98314)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qcv6v")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yvdvk")
+volume_db = -60.0
+autoplay = true
+bus = &"closeLeft"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vo3bf")
+volume_db = -30.0
+bus = &"distantLeftReverb"
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer3"]
+one_shot = true
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3pr1t")
+volume_db = -5.0
+autoplay = true
+bus = &"distantRight"
+
+[node name="Camera" type="Sprite2D" parent="."]
+position = Vector2(117, 558)
+scale = Vector2(0.055, 0.0436667)
+texture = ExtResource("7_2eq77")
+
+[node name="CamLabel" type="Label" parent="."]
+modulate = Color(0, 1, 0.000607729, 1)
+offset_left = 98.0
+offset_top = 78.0
+offset_right = 329.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("9_o1j7a")
+theme_override_font_sizes/font_size = 50
+text = "1
+
+"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 0, 0, 0.784314)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -79,32 +260,22 @@ grow_vertical = 2
 scale = Vector2(1.00418, -1.01903)
 size_flags_horizontal = 3
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus sed tellus ut tincidunt. Cras ipsum nisl, consectetur ac blandit sit amet, dignissim eu lorem. Nullam in massa vestibulum, cursus orci ac, tempor lorem. Integer scelerisque in tortor eu vehicula. Sed gravida eget ex sit amet rutrum. Quisque ut eros elementum, fermentum ligula vitae, ultrices eros. Maecenas venenatis mauris condimentum, malesuada est quis, suscipit sapien. Praesent eu nunc felis. Sed varius volutpat augue, et venenatis justo blandit id. Aenean arcu eros, dapibus eu nisl vitae, tempor pharetra diam. Aliquam varius ligula quis ultrices auctor. Aliquam imperdiet sem ac diam sollicitudin, sit amet finibus ipsum dapibus. Quisque quis leo arcu. Maecenas volutpat, turpis at euismod ultricies, elit metus semper quam, vel iaculis risus lectus id arcu.
-
 Nullam nulla est, scelerisque non velit sit amet, fermentum posuere odio. Nam quis nulla malesuada, tempor orci quis, vehicula magna. Fusce at massa nulla. Donec feugiat leo quis orci mollis, vel dapibus velit lacinia. Aenean ac blandit ligula. Donec bibendum quam et nunc tempor venenatis. Pellentesque et pharetra augue.
-
 Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus.
-
 Curabitur ut magna magna. Vestibulum sed ex eu ante molestie volutpat eu sed orci. Donec mattis tincidunt malesuada. Suspendisse aliquet, sapien quis ullamcorper auctor, enim libero sollicitudin turpis, at imperdiet turpis libero et libero. Phasellus egestas diam vel justo interdum, non euismod odio dapibus. Fusce elementum euismod dolor eget ornare. Nam condimentum porta ex sed vestibulum. In hac habitasse platea dictumst. Donec a blandit enim. Curabitur in mauris rhoncus, venenatis ligula id, ultrices nibh. Nulla semper nunc velit, eget porttitor tellus luctus quis. Donec sollicitudin lacinia fringilla. Vestibulum lacus tellus, pulvinar quis justo in, tincidunt accumsan lacus. Suspendisse lobortis est sapien, quis fermentum erat tristique quis. Sed id lacinia nibh.
 Cras porta leo ac congue pharetra. Nam turpis nisi, ornare ac diam ut, scelerisque pharetra sem. Donec vitae est dolor. Nullam consequat libero lacus. Vivamus placerat efficitur diam, ac faucibus leo blandit eu. Pellentesque ullamcorper id nulla ac sollicitudin. Donec posuere diam id arcu aliquam volutpat. Phasellus posuere aliquam faucibus."
 autowrap_mode = 2
+uppercase = true
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Label"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 libraries = {
 "": SubResource("AnimationLibrary_gm4di")
 }
-autoplay = "text"
-speed_scale = 0.03
+autoplay = "RESET"
+speed_scale = 0.001
 
-[node name="CRT" parent="Camera3D" instance=ExtResource("1_4lv1o")]
+[node name="CRT" parent="." instance=ExtResource("1_4lv1o")]
 
-[node name="TheLamp" parent="." instance=ExtResource("2_1dsn5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.496, 30, -4)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.518271, -7.04233)
-mesh = SubResource("CylinderMesh_kfevd")
-
-[node name="Board" parent="." instance=ExtResource("2_47q1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33519, 0, -0.0191383)
+[connection signal="timeout" from="AudioStreamPlayer3/Timer" to="." method="_on_timer_timeout"]

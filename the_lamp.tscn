@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://des0my208aa5t"]
+[gd_scene load_steps=5 format=3 uid="uid://des0my208aa5t"]
+
+[ext_resource type="Script" path="res://the_lamp.gd" id="1_kjbhu"]
 
 [sub_resource type="Animation" id="Animation_h3ld2"]
 length = 0.001
@@ -39,11 +41,11 @@ _data = {
 }
 
 [node name="TheLamp" type="Node3D"]
+script = ExtResource("1_kjbhu")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
-light_color = Color(0.991259, 1, 0.905601, 1)
-light_energy = 3.0
+light_color = Color(1, 0.753524, 0, 1)
 light_indirect_energy = 3.0
 light_size = 1.0
 shadow_enabled = true
@@ -51,6 +53,7 @@ shadow_reverse_cull_face = true
 spot_range = 50.0
 spot_attenuation = 0.000155586
 spot_angle = 25.0
+spot_angle_attenuation = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

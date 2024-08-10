@@ -1,0 +1,60 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://y6e21taa16df"]
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_4bvh4"]
+resource_name = "Panner"
+pan = 1.0
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_vawg2"]
+resource_name = "Panner"
+pan = -1.0
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_n8xpd"]
+resource_name = "Panner"
+pan = -0.5
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_x74ba"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_xl8nc"]
+resource_name = "Reverb"
+room_size = 0.9
+damping = 0.1
+spread = 0.5
+hipass = 0.5
+dry = 0.5
+
+[resource]
+bus/1/name = &"distantRight"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectPanner_4bvh4")
+bus/1/effect/0/enabled = true
+bus/2/name = &"distantLeft"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectPanner_vawg2")
+bus/2/effect/0/enabled = true
+bus/3/name = &"closeLeft"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectPanner_n8xpd")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectReverb_x74ba")
+bus/3/effect/1/enabled = false
+bus/4/name = &"distantLeftReverb"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"distantLeft"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_xl8nc")
+bus/4/effect/0/enabled = true
