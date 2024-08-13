@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://de7vqjsh2vifn"]
+
+[ext_resource type="PackedScene" uid="uid://las1ixklf8fc" path="res://Assets/Rook/Rook.gltf" id="1_c3t08"]
+
+[node name="Rook" instance=ExtResource("1_c3t08")]
+
+[node name="Castle" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

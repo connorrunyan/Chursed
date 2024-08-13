@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://l2ahvidsvval"]
+
+[ext_resource type="PackedScene" uid="uid://dmeywjkuor47q" path="res://Assets/King/King.gltf" id="1_3sr4n"]
+
+[node name="King" instance=ExtResource("1_3sr4n")]
+
+[node name="King2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
