@@ -35,6 +35,35 @@ func _ready():
 	Board.resize(64)
 	random_board()
 	
+
+func random_board():
+	ID_count = 0
+	for i in range(Board.size()):
+		Board[i] = null
+	
+	for piece_instance in $Pieces.get_children():
+		piece_instance.queue_free()
+	
+	var piece_scores = piece_types.values()
+	
+	for i in range(16):
+		var random_score = piece_scores[randi() % piece_scores.size()]
+		
+		var color = 1
+		
+		var piece = Piece.new(random_score, color, GenerateID())
+		
+		Board[i] = piece
+		
+	for i in range(48, 64):
+		var random_score = piece_scores[randi() % piece_scores.size()]
+		
+		var color = 0
+		
+		var piece = Piece.new(random_score, color, GenerateID())
+		
+		Board[i] = piece
+	
 	for i in range(64):
 		var piece = Board[i]
 		if piece != null:
@@ -64,29 +93,6 @@ func _ready():
 				for child in piece_instance.get_children():
 					if child is MeshInstance3D:
 						child.set_surface_override_material(0, material_to_apply)
-	print(pieces.get_node(str(Board[0].id)))
-
-func random_board():
-	var piece_scores = piece_types.values()
-	
-	for i in range(16):
-		var random_score = piece_scores[randi() % piece_scores.size()]
-		
-		var color = 1
-		
-		var piece = Piece.new(random_score, color, GenerateID())
-		
-		Board[i] = piece
-		
-	for i in range(48, 64):
-		var random_score = piece_scores[randi() % piece_scores.size()]
-		
-		var color = 0
-		
-		var piece = Piece.new(random_score, color, GenerateID())
-		
-		Board[i] = piece
-	
 
 func GenerateID():
 	ID_count = ID_count+1
@@ -133,7 +139,16 @@ func index_to_board_position(index: int):
 	
 	return Vector3(x_position, top_left.y, z_position)
 
+func scramble_board():
+	for i in range(64):
+		var index = randi() % (i + 1)
+		var temp = Board[i]
+		Board[i] = Board[index]
+		Board[index] = temp
+	update_board()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("ui_accept"):
+		scramble_board()
+		#random_board()
